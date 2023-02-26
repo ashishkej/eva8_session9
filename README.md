@@ -9,12 +9,12 @@
     - Apply GAP and get 1x1x48, call this X
     - Create a block called ULTIMUS that:
         - Creates 3 FC layers called K, Q and V such that:
-            - X*K = 48*48x8 > 8
-            - X*Q = 48*48x8 > 8 
-            - X*V = 48*48x8 > 8 
-            - then create AM = SoftMax(QTK)/(8^0.5) = 8*8 = 8
-            - then Z = V*AM = 8*8 > 8
-            - then another FC layer called Out that:Z*Out = 8*8x48 > 48
+            - X*K = 48\*48x8 > 8
+            - X*Q = 48\*48x8 > 8 
+            - X*V = 48\*48x8 > 8 
+            - then create AM = SoftMax(QTK/(8^0.5)) = 8\*8 = 8
+            - then Z = V*AM = 8\*8 > 8
+            - then another FC layer called Out that:Z\*Out = 8\*8x48 > 48
     - Repeat this Ultimus block 4 times
     - Then add final FC layer that converts 48 to 10 and sends it to the loss function.
     - Model would look like this C>C>C>U>U>U>U>FFC>Loss
@@ -39,5 +39,4 @@
 ## References
 
 * https://towardsdatascience.com/how-to-code-the-transformer-in-pytorch-24db27c8f9ec
-
 
